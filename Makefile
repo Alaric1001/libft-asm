@@ -6,7 +6,7 @@
 #    By: asenat <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 10:52:15 by asenat            #+#    #+#              #
-#    Updated: 2018/10/22 11:01:58 by asenat           ###   ########.fr        #
+#    Updated: 2018/10/22 13:49:22 by asenat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,12 @@
 #
 .SUFFIXES:
 NAME		:= libfts.a
-CC 		:= nasm
+CC 			:= nasm
 C_CC		:= clang
-AR		:= ar
+AR			:= ar
 CFLAGS		:= -f macho64
 LFLAGS		:= rc
-RM		:= rm -f
+RM			:= rm -f
 OBJECT_DIR	:= obj
 COMP		:= $(CC) $(CFLAGS) -o
 ifeq ($(shell uname -s), Darwin)
@@ -83,3 +83,7 @@ fclean: clean
 
 .PHONY: re
 re: fclean all
+
+.PHONY: makedeps
+makedeps:
+	python3.7 ./gen_make_sources.py --source='.s' $(SRC_DIRS)
