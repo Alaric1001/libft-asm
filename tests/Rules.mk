@@ -6,14 +6,15 @@
 #    By: asenat <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 11:06:56 by asenat            #+#    #+#              #
-#    Updated: 2018/10/22 16:16:45 by asenat           ###   ########.fr        #
+#    Updated: 2018/11/05 16:45:46 by asenat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TEST_CFLAGS	:= -g -c -o
 TEST_LFLAGS	:= -L./ -lfts
 TEST_FILES	:=	ft_bzero.c \
-				ft_strcat.c
+				ft_strcat.c \
+				ft_isalpha.c
 				
 CURR_DIR	:= tests
 TEST_OBJECTS	:= $(addprefix $(CURR_DIR)/$(OBJECT_DIR)/, $(TEST_FILES:.c=.o))
