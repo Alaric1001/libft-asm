@@ -6,21 +6,21 @@
 #    By: asenat <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 11:06:56 by asenat            #+#    #+#              #
-#    Updated: 2018/11/05 16:45:46 by asenat           ###   ########.fr        #
+#    Updated: 2018/11/06 12:56:59 by asenat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TEST_CFLAGS	:= -g -c -o
+TEST_CFLAGS	:= -I. -g -c -o
 TEST_LFLAGS	:= -L./ -lfts
 TEST_FILES	:=	ft_bzero.c \
 				ft_strcat.c \
-				ft_isalpha.c
+				single_char_functions.c
 				
-CURR_DIR	:= tests
+CURR_DIR		:= tests
 TEST_OBJECTS	:= $(addprefix $(CURR_DIR)/$(OBJECT_DIR)/, $(TEST_FILES:.c=.o))
 RUN_TEST_RULES	:= $(addprefix test_, $(TEST_FILES:.c=))
 
-TEST_FILES	:= $(addprefix $(CURR_DIR)/, $(TEST_FILES))
+TEST_FILES		:= $(addprefix $(CURR_DIR)/, $(TEST_FILES))
 TEST_TARGETS	:= $(TEST_FILES:.c=)
 TEST_OBJ_DIR	:= $(CURR_DIR)/$(OBJECT_DIR)
 
