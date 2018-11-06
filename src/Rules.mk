@@ -8,3 +8,6 @@ src/$(OBJECT_DIR)/ft_isascii.o: src/ft_isascii.s
 src/$(OBJECT_DIR)/ft_isdigit.o: src/ft_isdigit.s
 src/$(OBJECT_DIR)/ft_isprint.o: src/ft_isprint.s
 src/$(OBJECT_DIR)/ft_strcat.o: src/ft_strcat.s
+src/$(OBJECT_DIR)/ft_strlen.o: src/ft_strlen.s
+src/$(OBJECT_DIR)/ft_tolower.o: src/ft_tolower.s
+src/$(OBJECT_DIR)/ft_toupper.o: src/ft_toupper.s
