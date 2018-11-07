@@ -7,6 +7,7 @@ src/$(OBJECT_DIR)/ft_isalpha.o: src/ft_isalpha.s
 src/$(OBJECT_DIR)/ft_isascii.o: src/ft_isascii.s
 src/$(OBJECT_DIR)/ft_isdigit.o: src/ft_isdigit.s
 src/$(OBJECT_DIR)/ft_isprint.o: src/ft_isprint.s
+src/$(OBJECT_DIR)/ft_memcpy.o: src/ft_memcpy.s
 src/$(OBJECT_DIR)/ft_memset.o: src/ft_memset.s
 src/$(OBJECT_DIR)/ft_puts.o: src/ft_puts.s
 src/$(OBJECT_DIR)/ft_strcat.o: src/ft_strcat.s
