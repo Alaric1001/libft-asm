@@ -11,6 +11,7 @@ src/$(OBJECT_DIR)/ft_memcpy.o: src/ft_memcpy.s
 src/$(OBJECT_DIR)/ft_memset.o: src/ft_memset.s
 src/$(OBJECT_DIR)/ft_puts.o: src/ft_puts.s
 src/$(OBJECT_DIR)/ft_strcat.o: src/ft_strcat.s
+src/$(OBJECT_DIR)/ft_strdup.o: src/ft_strdup.s
 src/$(OBJECT_DIR)/ft_strlen.o: src/ft_strlen.s
 src/$(OBJECT_DIR)/ft_tolower.o: src/ft_tolower.s
 src/$(OBJECT_DIR)/ft_toupper.o: src/ft_toupper.s

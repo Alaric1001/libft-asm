@@ -10,6 +10,7 @@ OBJ_FILES_src := ft_bzero.o \
                  ft_memset.o \
                  ft_puts.o \
                  ft_strcat.o \
+                 ft_strdup.o \
                  ft_strlen.o \
                  ft_tolower.o \
                  ft_toupper.o
