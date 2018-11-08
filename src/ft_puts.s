@@ -7,15 +7,19 @@ section	.text
 	global _ft_puts
 
 _ft_puts:
-	push rdi				; rdi should not move, thus we save it
-	mov	rdi, [rsp]			; cpy the value that we just pushed in the stack into rdi
-
+	push rbp
+	mov rbp, rsp
+	sub rsp, 0x8			; creating the stack frame
+	
 	cmp rdi, 0x0			; if the string is null we jump to the display_null routine
 	je .display_null
 
+	mov [rbp-0x8], rdi		; save the base ptr in the stack
+
 	call _ft_strlen			;  we get the string len in rax
+	
 	mov rdx, rax			; rdx contains the len of the string
-	mov rsi, rdi			; rsi contains a ptr to the string
+	mov rsi, [rbp-0x8]		; rsi contains a ptr to the string
 	call write_s			; do the syscall
 	test rax, rax			; check if write didnt fail
 	jl .error
@@ -32,7 +36,8 @@ _ft_puts:
 	.error:
 		mov rax, -1
 	.end:
-		pop rdi				; restore rdi to its initial value
+		mov rsp, rbp		; destroy the stack frame and ret 
+     	pop rbp	
 		ret					; return rax
 
 	.display_null: 			; This part juste write "(null)\n" and return
