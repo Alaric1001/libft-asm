@@ -2,6 +2,7 @@
 src/$(OBJECT_DIR)/%.o: src/%.s
 	$(COMP) $@ $<
 src/$(OBJECT_DIR)/ft_bzero.o: src/ft_bzero.s
+src/$(OBJECT_DIR)/ft_cat.o: src/ft_cat.s
 src/$(OBJECT_DIR)/ft_isalnum.o: src/ft_isalnum.s
 src/$(OBJECT_DIR)/ft_isalpha.o: src/ft_isalpha.s
 src/$(OBJECT_DIR)/ft_isascii.o: src/ft_isascii.s
