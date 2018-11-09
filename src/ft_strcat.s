@@ -4,11 +4,6 @@ section	.text
 _ft_strcat:
 	mov rax, rdi				; move the string begin in the ret reg.
 
-	cmp rdi, 0x0				;
-	je .end						;
-	cmp rsi, 0x0				;
-	je .end						; if rsi or rdi are null just end
-
 	.l1:						;
 		cmp byte[rdi], 0x0		;
 		je .endl1				; increment rdi until we find a null char
@@ -25,7 +20,6 @@ _ft_strcat:
 		inc rsi					;
 		jmp .l2					;
 	.endl2:
-	inc rdi						;
 	mov byte[rdi], 0x0			; add the last null char at the end of rdi
 
 	.end:
