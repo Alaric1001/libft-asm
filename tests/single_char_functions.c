@@ -9,6 +9,7 @@ int ft_isdigit(int c);
 int ft_isalnum(int c);
 int ft_isascii(int c);
 int ft_isprint(int c);
+int ft_isspace(int c);
 int ft_toupper(int c);
 int ft_tolower(int c);
 
@@ -48,12 +49,13 @@ test_state_t run_test(const test_data_t *data) {
 }
 
 int main() {
-	TEST_ARR_BEGIN(test_data_t, tests, 7)
+	TEST_ARR_BEGIN(test_data_t, tests, 8)
 		TEST_DATA(isalpha),
 		TEST_DATA(isdigit),
 		TEST_DATA(isalnum),
 		TEST_DATA(isascii),
 		TEST_DATA(isprint),
+		TEST_DATA(isspace),
 		TEST_DATA(toupper),
 		TEST_DATA(tolower),
 	TEST_ARR_END

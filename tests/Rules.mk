@@ -6,21 +6,25 @@
 #    By: asenat <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 11:06:56 by asenat            #+#    #+#              #
-#    Updated: 2018/11/09 14:09:53 by asenat           ###   ########.fr        #
+#    Updated: 2018/11/13 14:24:49 by asenat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TEST_CFLAGS	:= -I. -g -c -o
-TEST_LFLAGS	:= -L./ -lfts -Wl,-no_pie
+TEST_CFLAGS	:= -I. -g -c
+TEST_LFLAGS	:= -L. -lfts# -Wl,-no_pie
 TEST_FILES	:=	ft_bzero.c \
 				ft_strcat.c \
 				single_char_functions.c \
 				ft_strlen.c \
 				ft_puts.c \
 				ft_memset.c \
-				ft_memcpy.c \
+				ft_memcpy_memmove.c \
 				ft_strdup.c \
-				ft_cat.c
+				ft_cat.c \
+				ft_atoi.c \
+				ft_strcmp.c \
+				ft_memchr.c \
+				ft_memmove.c
 				
 CURR_DIR		:= tests
 TEST_OBJECTS	:= $(addprefix $(CURR_DIR)/$(OBJECT_DIR)/, $(TEST_FILES:.c=.o))
@@ -53,10 +57,10 @@ test_%: all $(TEST_OBJ_DIR) $(CURR_DIR)/%
 	@rm -f $*.out
 
 $(CURR_DIR)/%: $(CURR_DIR)/$(OBJECT_DIR)/%.o $(NAME)
-	$(C_CC) $(TEST_LFLAGS) -o $@ $< $(OBJECTS)
+	$(C_CC) $(TEST_LFLAGS) -o $@ $<
 
 $(CURR_DIR)/$(OBJECT_DIR)/%.o: $(CURR_DIR)/%.c
-	$(C_CC) $(TEST_CFLAGS) -c -o $@ $<
+	$(C_CC) $(TEST_CFLAGS) -o $@ $<
 
 $(TEST_OBJ_DIR):
 	mkdir $@

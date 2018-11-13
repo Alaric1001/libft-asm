@@ -6,7 +6,7 @@
 #    By: asenat <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 10:52:15 by asenat            #+#    #+#              #
-#    Updated: 2018/10/22 13:49:22 by asenat           ###   ########.fr        #
+#    Updated: 2018/11/13 12:06:05 by asenat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ NAME		:= libfts.a
 CC 			:= nasm
 C_CC		:= clang
 AR			:= ar
+ARFLAGS		:= rc
 CFLAGS		:= -f macho64
-LFLAGS		:= rc
 RM			:= rm -f
 OBJECT_DIR	:= obj
 COMP		:= $(CC) $(CFLAGS) -o
@@ -55,7 +55,7 @@ include $(patsubst %, %/Sources.mk, $(SRC_DIRS))
 OBJ_DIRS	:= $(patsubst %, %/obj, $(SRC_DIRS))
 
 $(NAME): $(OBJ_DIRS) $(OBJECTS) $(IMPL_OBJS)
-	$(AR) $(LFLAGS) $(NAME) $(OBJECTS) $(IMPL_OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJECTS) $(IMPL_OBJS)
 	@$(ECHO) $(PNAME)$(GREEN) "linking complete"$(RESET)
 
 ## Including compilation rules
