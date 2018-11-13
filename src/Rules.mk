@@ -1,6 +1,7 @@
 ## Auto generated make tool, don't edit manually.
 src/$(OBJECT_DIR)/%.o: src/%.s
 	$(COMP) $@ $<
+src/$(OBJECT_DIR)/ft_abs.o: src/ft_abs.s
 src/$(OBJECT_DIR)/ft_atoi.o: src/ft_atoi.s
 src/$(OBJECT_DIR)/ft_bzero.o: src/ft_bzero.s
 src/$(OBJECT_DIR)/ft_cat.o: src/ft_cat.s

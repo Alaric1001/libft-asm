@@ -6,7 +6,7 @@
 #    By: asenat <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 11:06:56 by asenat            #+#    #+#              #
-#    Updated: 2018/11/13 14:24:49 by asenat           ###   ########.fr        #
+#    Updated: 2018/11/13 16:32:58 by asenat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ TEST_FILES	:=	ft_bzero.c \
 				ft_atoi.c \
 				ft_strcmp.c \
 				ft_memchr.c \
-				ft_memmove.c
+				ft_memmove.c \
+				ft_abs.c
 				
 CURR_DIR		:= tests
 TEST_OBJECTS	:= $(addprefix $(CURR_DIR)/$(OBJECT_DIR)/, $(TEST_FILES:.c=.o))

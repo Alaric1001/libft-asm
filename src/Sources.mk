@@ -1,6 +1,7 @@
 ## Auto generated make tool, don't edit manually.
 
-OBJ_FILES_src := ft_atoi.o \
+OBJ_FILES_src := ft_abs.o \
+                 ft_atoi.o \
                  ft_bzero.o \
                  ft_cat.o \
                  ft_isalnum.o \
