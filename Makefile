@@ -6,7 +6,7 @@
 #    By: asenat <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 10:52:15 by asenat            #+#    #+#              #
-#    Updated: 2018/11/13 12:06:05 by asenat           ###   ########.fr        #
+#    Updated: 2018/11/13 17:24:24 by asenat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #
 .SUFFIXES:
 NAME		:= libfts.a
-CC 			:= nasm
+CC 		:= nasm
 C_CC		:= clang
-AR			:= ar
-ARFLAGS		:= rc
+AR		:= libtool
+ARFLAGS		:= -static
 CFLAGS		:= -f macho64
 RM			:= rm -f
 OBJECT_DIR	:= obj
@@ -55,7 +55,7 @@ include $(patsubst %, %/Sources.mk, $(SRC_DIRS))
 OBJ_DIRS	:= $(patsubst %, %/obj, $(SRC_DIRS))
 
 $(NAME): $(OBJ_DIRS) $(OBJECTS) $(IMPL_OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJECTS) $(IMPL_OBJS)
+	$(AR) $(ARFLAGS) -o $(NAME) $(OBJECTS) $(IMPL_OBJS)
 	@$(ECHO) $(PNAME)$(GREEN) "linking complete"$(RESET)
 
 ## Including compilation rules
