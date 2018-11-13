@@ -1,8 +1,5 @@
 extern _ft_strlen
 
-section	.rodata
-	null_msg: db "(null)", 0ah
-
 section	.text
 	global _ft_puts
 
@@ -24,7 +21,7 @@ _ft_puts:
 	test rax, rax			; check if write didnt fail
 	jl .error
 
-	mov rsi, null_msg + 0x6	; just pick the \n of null_msg...
+	lea rsi, [rel line_break]	; just pick the \n of null_msg...
 	mov rdx, 0x1			
 	call write_s			; ...and write it
 	test rax, rax
@@ -42,11 +39,14 @@ _ft_puts:
 
 	.display_null: 			; This part juste write "(null)\n" and return
 		mov rdx, 0x7
-		mov rsi, null_msg
+		lea rsi, [rel null_msg]
 		call write_s
 		test rax, rax
 		jl .error
 		jmp .success
+data:
+	null_msg: db "(null)", 0ah
+	line_break: db 0ah
 
 write_s:
 	mov rax, 0x2000004
