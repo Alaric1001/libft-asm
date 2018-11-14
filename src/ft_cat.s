@@ -10,10 +10,7 @@ global _ft_cat
 _ft_cat:
 	push rbp
 	mov rbp, rsp
-	sub rsp, 0x20			; stack frame has to be aligned with 0x10 for malloc
-
-	test edi, edi
-	js .end
+	sub rsp, 0x10			; stack frame has to be aligned with 0x10 for malloc
 
 	mov [rbp-0x8], rdi		; save the fd in the stack
 	mov rdi, BUFF_SIZE		; we will malloc the buffer here
@@ -28,17 +25,16 @@ _ft_cat:
 	mov rsi, [rbp-0x10]		;
 	mov rdx, BUFF_SIZE		;
 	syscall					; read(fd, buff, buff_s);
+	jc .free				; if read fail, break
 
-	mov [rbp-0x18], rax		; saving the return of read
+	test rax, rax
+	jz .free				; if nothing left to read, break
 
 	mov rsi, [rbp-0x10]		;
 	mov rdx, rax			;
 	call write_s			; write(1, buff, read_ret)
-	test rax, rax
-	jl .free
-
-	cmp qword [rbp-0x18], 0x0
-	jg .read_loop			; if read_ret > 0
+	jc .free
+	jmp .read_loop			; if read_ret > 0
 
 	.free:
 		mov rdi, [rbp-0x10]	;

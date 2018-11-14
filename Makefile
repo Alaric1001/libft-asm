@@ -6,7 +6,7 @@
 #    By: asenat <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/22 10:52:15 by asenat            #+#    #+#              #
-#    Updated: 2018/11/13 17:24:24 by asenat           ###   ########.fr        #
+#    Updated: 2018/11/14 15:15:04 by asenat           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ C_CC		:= clang
 AR		:= libtool
 ARFLAGS		:= -static
 CFLAGS		:= -f macho64
-RM			:= rm -f
+RM		:= rm -f
 OBJECT_DIR	:= obj
 COMP		:= $(CC) $(CFLAGS) -o
 ifeq ($(shell uname -s), Darwin)

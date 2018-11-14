@@ -19,5 +19,6 @@ int main()
 	test("t_cat");
 	test("/usr/bin/ccmake");
 	ft_cat(-1);
+	ft_cat(42);
 	return TEST_SUCCESS;
 }

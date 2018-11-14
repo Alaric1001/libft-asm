@@ -18,14 +18,12 @@ _ft_puts:
 	mov rdx, rax			; rdx contains the len of the string
 	mov rsi, [rbp-0x8]		; rsi contains a ptr to the string
 	call write_s			; do the syscall
-	test rax, rax			; check if write didnt fail
-	jl .error
+	jc .error				; if carry flag is set, return err
 
 	lea rsi, [rel line_break]	; just pick the \n of null_msg...
 	mov rdx, 0x1			
 	call write_s			; ...and write it
-	test rax, rax
-	jl .error
+	jc .error				; if carry flag is set, return err
 
 	.success:
 		mov rax, 0xa		; puts return 10 on success
@@ -41,8 +39,7 @@ _ft_puts:
 		mov rdx, 0x7
 		lea rsi, [rel null_msg]
 		call write_s
-		test rax, rax
-		jl .error
+		jc .error			; if carry flag is set, return err
 		jmp .success
 data:
 	null_msg: db "(null)", 0ah
