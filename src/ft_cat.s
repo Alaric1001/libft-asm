@@ -4,6 +4,14 @@ extern _ft_memcpy
 
 %define BUFF_SIZE 0x400
 
+%macro write_str 2
+	mov rsi, %1
+	mov rdx, %2
+	mov rax, 0x2000004
+	mov rdi, 0x1
+	syscall
+%endmacro
+
 section .text
 global _ft_cat
 
@@ -30,9 +38,7 @@ _ft_cat:
 	test rax, rax
 	jz .free				; if nothing left to read, break
 
-	mov rsi, [rbp-0x10]		;
-	mov rdx, rax			;
-	call write_s			; write(1, buff, read_ret)
+	write_str [rbp-0x10], rax ; flush the buffer to stdout
 	jc .free
 	jmp .read_loop			; if read_ret > 0
 
@@ -45,9 +51,3 @@ _ft_cat:
 		mov rsp, rbp		; destroy the stack frame and ret
 		pop rbp
 		ret
-
-write_s:
-	mov rax, 0x2000004
-	mov rdi, 0x1
-	syscall
-	ret
