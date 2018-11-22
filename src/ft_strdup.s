@@ -13,6 +13,7 @@ _ft_strdup:
 	mov [rbp-0x8], rdi		; save the source ptr
 
 	call _ft_strlen			; strlen of the source ptr
+	inc rax					; reserve a byte for the null char
 	mov [rbp-0x10], rax		; save the len in the stack frame
 
 	mov rdi, rax			; set the len in the first param register of malloc
